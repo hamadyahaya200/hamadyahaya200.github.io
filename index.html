@@ -406,6 +406,16 @@ function toggleLanguage(){
   document.documentElement.lang = currentLanguage;
 }
 </script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
+<script>
+const SUPABASE_URL = "https://xkcrotlghwhgjuinnxzp.supabase.co";
+const SUPABASE_KEY = "sb_publishable_CUnSD1LeO9qSEWvtjuyjyg_ewheu1FQ";
+
+const supabaseClient = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
+</script>
 </body>
 </html>
