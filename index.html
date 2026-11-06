@@ -1,253 +1,489 @@
 
 <!DOCTYPE html>
-<html lang="sw">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Official website of Hamad Yahaya, literary writer and procurement professional.">
-<title>Hamad Yahaya | Official Website</title>
-
+<meta name="description" content="Hamad Yahaya — Writer, Literary Creator and Procurement Professional.">
+<title>Hamad Yahaya | Writer & Procurement Professional</title>
 <style>
 :root {
-  --gold: #d6b36a;
-  --black: #101010;
-  --white: #f8f6f1;
-  --gray: #bdbdbd;
+  --blue:#dceeff;
+  --blue2:#eef7ff;
+  --navy:#173b65;
+  --accent:#398bcb;
+  --ink:#24384d;
+  --muted:#63788c;
+  --line:#d7e8f6;
 }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+* {box-sizing:border-box}
+html {scroll-behavior:smooth}
 body {
-  background: var(--black);
-  color: var(--white);
-  font-family: Georgia, serif;
-  line-height: 1.7;
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#fff;
+  color:var(--ink);
+  line-height:1.65;
 }
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 7%;
-  border-bottom: 1px solid #333;
-  position: sticky;
-  top: 0;
-  background: #101010;
-  z-index: 10;
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:rgba(255,255,255,.96);
+  border-bottom:1px solid var(--line);
 }
-.logo { color: var(--gold); font-size: 25px; font-weight: bold; }
-nav { display: flex; gap: 20px; flex-wrap: wrap; }
-nav a {
-  color: white;
-  text-decoration: none;
-  font-size: 13px;
+.nav {
+  max-width:1120px;
+  margin:auto;
+  padding:14px 22px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:18px;
 }
-nav a:hover { color: var(--gold); }
-.lang {
-  background: var(--gold);
-  border: none;
-  padding: 8px 12px;
-  cursor: pointer;
-  font-weight: bold;
-}
+.brand {font-weight:800;color:var(--navy)}
+nav {display:flex;gap:18px;flex-wrap:wrap}
+nav a {font-size:.9rem;color:var(--ink);text-decoration:none}
+nav a:hover {color:var(--accent)}
+main {max-width:1120px;margin:auto;padding:0 22px}
 .hero {
-  min-height: 520px;
-  padding: 110px 8%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background: linear-gradient(120deg,#101010,#252018);
+  display:grid;
+  grid-template-columns:.85fr 1.15fr;
+  gap:44px;
+  align-items:center;
+  padding:62px 0;
 }
-.tag { color: var(--gold); letter-spacing: 4px; font-size: 12px; }
-h1 { font-size: clamp(42px,8vw,75px); margin: 15px 0; }
-h2 { color: var(--gold); font-size: 30px; margin-bottom: 20px; }
-h3 { color: var(--gold); margin-bottom: 10px; }
-.hero p { max-width: 650px; color: #ddd; }
-.gold { color: var(--gold); }
+.portrait {
+  width:100%;
+  max-height:560px;
+  object-fit:cover;
+  object-position:center 25%;
+  border-radius:22px;
+  border:7px solid var(--blue2);
+  box-shadow:0 18px 45px #173b651c;
+}
+.eyebrow {
+  color:var(--accent);
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  font-size:.78rem;
+}
+h1 {
+  font-size:clamp(2.3rem,5vw,4.2rem);
+  line-height:1.08;
+  color:var(--navy);
+  margin:10px 0;
+}
+.role {font-weight:700;color:var(--accent);margin:12px 0 24px}
+.welcome {
+  background:var(--blue2);
+  border:1px solid var(--line);
+  padding:20px 22px;
+  border-radius:16px;
+  margin-top:18px;
+}
+.welcome h2 {font-size:1.05rem;color:var(--navy);margin:0 0 8px}
+.welcome p {margin:0 0 15px}
+.welcome p:last-child {margin-bottom:0}
+.actions {display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
 .btn {
-  display: inline-block;
-  padding: 12px 24px;
-  margin-top: 25px;
-  background: var(--gold);
-  color: #111;
-  text-decoration: none;
-  font-weight: bold;
-  width: fit-content;
+  display:inline-block;
+  padding:11px 17px;
+  border-radius:999px;
+  background:var(--navy);
+  color:white;
+  text-decoration:none;
+  font-weight:700;
 }
-section { padding: 75px 8%; }
-section:nth-of-type(even) { background: #181818; }
-.content { max-width: 1000px; margin: auto; }
-.muted { color: var(--gray); }
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-  gap: 20px;
-  margin-top: 25px;
+.btn.secondary {background:var(--blue);color:var(--navy)}
+section {padding:48px 0;border-top:1px solid var(--line)}
+.section-head {margin-bottom:22px}
+.section-head h2 {margin:0;color:var(--navy);font-size:2rem}
+.section-head p {margin:5px 0;color:var(--muted)}
+.about-grid,.cards {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px;
 }
-.card {
-  background: #202020;
-  border: 1px solid #383838;
-  padding: 25px;
-  border-radius: 5px;
+.panel,.card {
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:22px;
+  box-shadow:0 8px 26px #173b650a;
 }
-.card p { color: var(--gray); font-size: 15px; }
-ul { padding-left: 22px; color: var(--gray); }
-li { margin: 7px 0; }
-.contact a { color: var(--gold); }
+.panel h3,.card h3 {color:var(--navy);margin:0 0 8px}
+.tag {
+  display:inline-block;
+  background:var(--blue);
+  color:var(--navy);
+  padding:5px 10px;
+  border-radius:999px;
+  font-size:.78rem;
+  margin:4px;
+}
+.card p {color:var(--muted)}
+.read-btn {
+  border:0;
+  border-radius:999px;
+  padding:10px 16px;
+  background:var(--navy);
+  color:#fff;
+  font-weight:700;
+  cursor:pointer;
+}
+.viewer {
+  display:none;
+  margin-top:18px;
+  background:var(--blue2);
+  border:1px solid var(--line);
+  padding:16px;
+  border-radius:16px;
+}
+.viewer.active {display:block}
+.viewer-top {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.page-frame {
+  background:#dceeff;
+  border-radius:12px;
+  padding:10px;
+  margin:14px auto;
+  max-width:760px;
+  text-align:center;
+}
+.page-frame img {
+  display:block;
+  max-width:100%;
+  height:auto;
+  margin:auto;
+  background:white;
+}
+.controls {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.controls button,.close-btn {
+  border:1px solid #b8d6ef;
+  background:white;
+  color:var(--navy);
+  border-radius:999px;
+  padding:8px 14px;
+  font-weight:700;
+  cursor:pointer;
+}
+.note {font-size:.85rem;color:var(--muted)}
+.gallery-strip {
+  display:flex;
+  gap:14px;
+  overflow-x:auto;
+  padding:4px 2px 14px;
+}
+.gallery-tile {
+  flex:0 0 210px;
+  background:var(--blue2);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:14px;
+}
+.gallery-tile img {
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  border-radius:12px;
+}
+.gallery-tile h3 {font-size:1rem;color:var(--navy)}
 footer {
-  padding: 30px 8%;
-  text-align: center;
-  border-top: 1px solid #333;
-  color: var(--gray);
-  font-size: 13px;
+  margin-top:30px;
+  background:var(--navy);
+  color:#eaf5ff;
+  padding:28px 22px;
+  text-align:center;
 }
-@media(max-width:700px) {
-  header { flex-wrap: wrap; gap: 15px; }
-  nav { gap: 12px; }
-  nav a { font-size: 12px; }
-  .hero { min-height: 430px; padding: 75px 7%; }
-  section { padding: 55px 7%; }
+@media(max-width:760px) {
+  .nav {align-items:flex-start;flex-direction:column}
+  nav {gap:12px}
+  .hero {grid-template-columns:1fr;gap:22px;padding:34px 0}
+  .portrait {max-height:480px}
+  .about-grid,.cards {grid-template-columns:1fr}
+  section {padding:34px 0}
 }
 </style>
 </head>
 
 <body>
-
 <header>
-  <div class="logo">HY.</div>
-  <nav>
-    <a href="#home" data-sw="Mwanzo" data-en="Home">Mwanzo</a>
-    <a href="#about" data-sw="Kuhusu" data-en="About">Kuhusu</a>
-    <a href="#works" data-sw="Fasihi" data-en="Literature">Fasihi</a>
-    <a href="#portfolio" data-sw="Portfolio" data-en="Portfolio">Portfolio</a>
-    <a href="#contact" data-sw="Mawasiliano" data-en="Contact">Mawasiliano</a>
-  </nav>
-  <button class="lang" onclick="toggleLanguage()">EN</button>
+<div class="nav">
+<div class="brand">HAMAD YAHAYA</div>
+<nav>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#procurement">Procurement</a>
+<a href="#literary">Literary Works</a>
+<a href="#contact">Contact</a>
+</nav>
+</div>
 </header>
 
 <main>
-<section class="hero" id="home">
-  <span class="tag">OFFICIAL PERSONAL WEBSITE</span>
-  <h1>HAMAD <span class="gold">YAHAYA</span></h1>
-  <h3 data-sw="Mwandishi wa Fasihi | Mtaalamu wa Procurement"
-      data-en="Literary Writer | Procurement Professional">
-      Mwandishi wa Fasihi | Mtaalamu wa Procurement</h3>
-  <p data-sw="Karibu katika ulimwengu wangu wa fasihi, ubunifu, mawazo na maendeleo ya kitaaluma."
-     data-en="Welcome to my world of literature, creativity, ideas and professional development.">
-     Karibu katika ulimwengu wangu wa fasihi, ubunifu, mawazo na maendeleo ya kitaaluma.
-  </p>
-  <a href="#about" class="btn" data-sw="Nifahamu zaidi" data-en="Discover More">Nifahamu zaidi</a>
+
+<section id="home" style="border:0">
+<div class="hero">
+<div>
+<img class="portrait"
+src="assets/profile/hamad-yahaya.jpg"
+alt="Portrait of Hamad Yahaya">
+</div>
+
+<div>
+<div class="eyebrow">Personal Portfolio</div>
+<h1>Hamad Yahaya</h1>
+<div class="role">
+Writer | Literary Creator | Procurement Professional
+</div>
+
+<div class="welcome">
+<h2>Karibu katika Tovuti Yangu</h2>
+<p>
+Mimi ni Hamad Yahaya, mwandishi wa fasihi na mpenda
+ubunifu wa mawazo, pia nina taaluma ya Procurement.
+Kupitia tovuti hii, ninashirikisha safari yangu ya
+kitaaluma, kazi za fasihi, ubunifu, maarifa na uzoefu
+katika nyanja mbalimbali. Lengo langu ni kuunganisha
+maarifa, ubunifu na taaluma ili kuleta mchango chanya
+katika jamii.
+</p>
+
+<h2>Welcome to My Personal Website</h2>
+<p>
+I am Hamad Yahaya, a literary writer and creative thinker
+with an academic background in Procurement. Through this
+platform, I share my professional journey, literary
+interests, creative ideas, knowledge and experiences
+across different fields. My goal is to connect knowledge,
+creativity and professional skills to make a positive
+contribution to society.
+</p>
+</div>
+
+<div class="actions">
+<a class="btn" href="#procurement">Explore My Portfolio</a>
+<a class="btn secondary" href="#contact">Get in Touch</a>
+</div>
+</div>
+</div>
 </section>
 
 <section id="about">
-<div class="content">
-  <h2 data-sw="Kuhusu Mimi" data-en="About Me">Kuhusu Mimi</h2>
-  <p class="muted"
-     data-sw="Mimi ni Hamad Yahaya, mwandishi wa fasihi ninayependa kutumia maandishi, ubunifu na uchambuzi wa mawazo kuwasilisha ujumbe wenye maana. Pia nimekamilisha mafunzo yangu katika kada ya Procurement, huku nikisubiri vyeti vyangu."
-     data-en="I am Hamad Yahaya, a literary writer interested in using writing, creativity and critical thinking to communicate meaningful ideas. I have also completed my studies in Procurement and am awaiting my certificates.">
-     Mimi ni Hamad Yahaya, mwandishi wa fasihi ninayependa kutumia maandishi, ubunifu na uchambuzi wa mawazo kuwasilisha ujumbe wenye maana. Pia nimekamilisha mafunzo yangu katika kada ya Procurement, huku nikisubiri vyeti vyangu.
-  </p>
+<div class="section-head">
+<h2>About Me</h2>
+<p>My academic journey, interests and professional direction.</p>
+</div>
+
+<div class="about-grid">
+<div class="panel">
+<h3>Literature & Creativity</h3>
+<p>
+I am interested in writing, exchanging ideas, reading
+and developing creative work. This section will grow
+as I publish poems, stories, articles and books.
+</p>
+<span class="tag">Writing</span>
+<span class="tag">Creative Thinking</span>
+<span class="tag">Communication</span>
+</div>
+
+<div class="panel">
+<h3>Procurement & Supply</h3>
+<p>
+I completed studies in Ordinary Diploma in Procurement
+and Supply at The Mwalimu Nyerere Memorial Academy
+(2023–2026). The award/certificate is pending issuance.
+</p>
+<span class="tag">Procurement Planning</span>
+<span class="tag">Supplier Sourcing</span>
+<span class="tag">Inventory</span>
+<span class="tag">Tendering</span>
+<span class="tag">Supply Chain</span>
+</div>
 </div>
 </section>
 
-<section id="works">
-<div class="content">
-  <h2 data-sw="Kazi Zangu za Fasihi" data-en="My Literary Works">Kazi Zangu za Fasihi</h2>
-  <p class="muted"
-     data-sw="Hapa ndipo nitakaposhirikisha kazi zangu za kifasihi na maandishi mbalimbali."
-     data-en="This is where I will share my literary works and other writings.">
-     Hapa ndipo nitakaposhirikisha kazi zangu za kifasihi na maandishi mbalimbali.
-  </p>
-  <div class="grid">
-    <div class="card">
-      <h3 data-sw="Mashairi" data-en="Poetry">Mashairi</h3>
-      <p data-sw="Mashairi yangu na tafakuri za kifasihi."
-         data-en="My poems and literary reflections.">Mashairi yangu na tafakuri za kifasihi.</p>
-    </div>
-    <div class="card">
-      <h3 data-sw="Hadithi" data-en="Stories">Hadithi</h3>
-      <p data-sw="Hadithi fupi na simulizi zenye ujumbe."
-         data-en="Short stories and meaningful narratives.">Hadithi fupi na simulizi zenye ujumbe.</p>
-    </div>
-    <div class="card">
-      <h3 data-sw="Makala" data-en="Articles">Makala</h3>
-      <p data-sw="Mawazo, uchambuzi na maandishi ya maisha."
-         data-en="Ideas, analysis and reflections on life.">Mawazo, uchambuzi na maandishi ya maisha.</p>
-    </div>
-  </div>
+<section id="procurement">
+<div class="section-head">
+<h2>Procurement & Professional Portfolio</h2>
+<p>Selected academic and practical documents. Read them on this page.</p>
+</div>
+
+<div class="cards">
+<div class="card">
+<div class="eyebrow">Field Report · 15 pages</div>
+<h3>Field Practical Training Report</h3>
+<p>
+A practical training report submitted under the name
+Hamad Maulidi Yahaya.
+</p>
+<button class="read-btn" onclick="openReader('field')">
+Read Field Report
+</button>
+</div>
+
+<div class="card">
+<div class="eyebrow">Business Proposal · 13 pages</div>
+<h3>Business Proposal</h3>
+<p>
+A business proposal document prepared by Hamad Maulidi Yahaya.
+</p>
+<button class="read-btn" onclick="openReader('proposal')">
+Read Business Proposal
+</button>
+</div>
+</div>
+
+<div id="field-viewer" class="viewer">
+<div class="viewer-top">
+<h3>Field Practical Training Report</h3>
+<button class="close-btn" onclick="closeReader('field')">Close</button>
+</div>
+<div class="page-frame">
+<img id="field-image" alt="Field report page">
+</div>
+<div class="controls">
+<button onclick="movePage('field',-1)">Previous</button>
+<span id="field-count"></span>
+<button onclick="movePage('field',1)">Next</button>
+</div>
+<p class="note">Pages are displayed as images for on-page reading.</p>
+</div>
+
+<div id="proposal-viewer" class="viewer">
+<div class="viewer-top">
+<h3>Business Proposal</h3>
+<button class="close-btn" onclick="closeReader('proposal')">Close</button>
+</div>
+<div class="page-frame">
+<img id="proposal-image" alt="Business proposal page">
+</div>
+<div class="controls">
+<button onclick="movePage('proposal',-1)">Previous</button>
+<span id="proposal-count"></span>
+<button onclick="movePage('proposal',1)">Next</button>
+</div>
+<p class="note">Pages are displayed as images for on-page reading.</p>
 </div>
 </section>
 
-<section id="portfolio">
-<div class="content">
-  <h2 data-sw="Portfolio Yangu" data-en="My Professional Portfolio">Portfolio Yangu</h2>
-  <div class="grid">
-    <div class="card">
-      <h3 data-sw="Uandishi na Ubunifu" data-en="Writing & Creativity">Uandishi na Ubunifu</h3>
-      <ul>
-        <li data-sw="Uandishi wa fasihi" data-en="Literary writing">Uandishi wa fasihi</li>
-        <li data-sw="Ubunifu wa mawazo" data-en="Creative thinking">Ubunifu wa mawazo</li>
-        <li data-sw="Uchambuzi wa mawazo" data-en="Critical thinking">Uchambuzi wa mawazo</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>Procurement</h3>
-      <ul>
-        <li data-sw="Nimekamilisha mafunzo ya Procurement"
-            data-en="Completed Procurement studies">Nimekamilisha mafunzo ya Procurement</li>
-        <li data-sw="Vyeti vinasubiri kutolewa"
-            data-en="Certificates pending issuance">Vyeti vinasubiri kutolewa</li>
-      </ul>
-    </div>
-  </div>
+<section id="literary">
+<div class="section-head">
+<h2>Literary Works & Gallery</h2>
+<p>A growing collection of writing, ideas and selected photographs.</p>
 </div>
-</section>
 
-<section id="books">
-<div class="content">
-  <h2 data-sw="Vitabu na Machapisho" data-en="Books & Publications">Vitabu na Machapisho</h2>
-  <p class="muted"
-     data-sw="Sehemu hii itatumika kutambulisha na kuuza vitabu vyangu nitakapovichapisha."
-     data-en="This section will showcase and sell my books as they become available.">
-     Sehemu hii itatumika kutambulisha na kuuza vitabu vyangu nitakapovichapisha.
-  </p>
+<div class="gallery-strip">
+<div class="gallery-tile">
+<img src="assets/profile/hamad-yahaya.jpg" alt="Hamad Yahaya">
+<h3>Author Profile</h3>
+<p class="note">Hamad Yahaya</p>
+</div>
+
+<div class="gallery-tile">
+<div style="height:180px;border-radius:12px;background:#dceeff;display:grid;place-items:center;color:#398bcb;font-size:3rem">✍</div>
+<h3>Poetry & Stories</h3>
+<p class="note">New works will be added here.</p>
+</div>
+
+<div class="gallery-tile">
+<div style="height:180px;border-radius:12px;background:#dceeff;display:grid;place-items:center;color:#398bcb;font-size:3rem">📚</div>
+<h3>Books & Articles</h3>
+<p class="note">Publications will appear here.</p>
+</div>
 </div>
 </section>
 
 <section id="contact">
-<div class="content contact">
-  <h2 data-sw="Wasiliana Nami" data-en="Contact Me">Wasiliana Nami</h2>
-  <p class="muted"
-     data-sw="Kwa mawasiliano, ushirikiano au masuala ya kazi zangu, unaweza kunifikia kupitia:"
-     data-en="For enquiries, collaborations or matters related to my work, you can reach me through:">
-     Kwa mawasiliano, ushirikiano au masuala ya kazi zangu, unaweza kunifikia kupitia:
-  </p>
-  <p style="margin-top:15px">Email: <a href="mailto:WEKA-EMAIL-YAKO-HAPA">WEKA EMAIL YAKO</a></p>
+<div class="section-head">
+<h2>Contact</h2>
+<p>For professional and literary enquiries.</p>
+</div>
+<div class="panel">
+<h3>Hamad Yahaya</h3>
+<p>Email:
+<a href="mailto:hamadyahaya200@gmail.com">
+hamadyahaya200@gmail.com
+</a>
+</p>
 </div>
 </section>
+
 </main>
 
 <footer>
-  © <span id="year"></span> Hamad Yahaya. All Rights Reserved.
-  <p>Words, Ideas and Legacy.</p>
+<p><strong>Hamad Yahaya</strong></p>
+<p>Words, Ideas and Legacy.</p>
+<p>© <span id="year"></span> Hamad Yahaya</p>
 </footer>
 
 <script>
-let currentLanguage = "sw";
+const pages = {
+ field: {
+  count:15,
+  path:'assets/portfolio/field-report/page-',
+  ext:'.webp',
+  index:1
+ },
+ proposal: {
+  count:13,
+  path:'assets/portfolio/business-proposal/page-',
+  ext:'.webp',
+  index:1
+ }
+};
 
-function toggleLanguage() {
-  currentLanguage = currentLanguage === "sw" ? "en" : "sw";
-
-  document.querySelectorAll("[data-sw]").forEach(element => {
-    element.textContent = element.getAttribute("data-" + currentLanguage);
-  });
-
-  document.querySelector(".lang").textContent =
-    currentLanguage === "sw" ? "EN" : "SW";
-
-  document.documentElement.lang = currentLanguage;
+function pad(n) {
+ return String(n).padStart(2,'0');
 }
 
-document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+function render(k) {
+ const p=pages[k];
+ document.getElementById(k+'-image').src=
+ p.path+pad(p.index)+p.ext;
+ document.getElementById(k+'-count').textContent=
+ 'Page '+p.index+' of '+p.count;
+}
 
+function openReader(k) {
+ for(const x of Object.keys(pages)) {
+  document.getElementById(x+'-viewer').classList.remove('active');
+ }
+ pages[k].index=1;
+ document.getElementById(k+'-viewer').classList.add('active');
+ render(k);
+ document.getElementById(k+'-viewer').scrollIntoView({
+  behavior:'smooth',
+  block:'start'
+ });
+}
+
+function closeReader(k) {
+ document.getElementById(k+'-viewer').classList.remove('active');
+}
+
+function movePage(k,d) {
+ const p=pages[k];
+ p.index=Math.max(1,Math.min(p.count,p.index+d));
+ render(k);
+}
+
+document.getElementById('year').textContent=
+ new Date().getFullYear();
+</script>
 </body>
 </html>
