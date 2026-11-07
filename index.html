@@ -700,10 +700,30 @@ function saveCustomCookies() {
 document.addEventListener("DOMContentLoaded", function() {
   updateCookieLanguage();
 
+  const observer = new MutationObserver(function() {
+    const firstLink = document.querySelector('nav a[href="#home"]');
+
+    if (firstLink) {
+      const lang = firstLink.textContent.trim() === "Home" ? "en" : "sw";
+
+      if (document.documentElement.lang !== lang) {
+        document.documentElement.lang = lang;
+        updateCookieLanguage();
+      }
+    }
+  });
+
+  const nav = document.querySelector("nav");
+
+  if (nav) {
+    observer.observe(nav, {
+      childList: true,
+      characterData: true,
+      subtree: true
+    });
+  }
+
   if (!localStorage.getItem("cookiePreferences")) {
     document.getElementById("cookieBanner").hidden = false;
   }
 });
-</script>
-</body>
-</html>
