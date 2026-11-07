@@ -557,7 +557,14 @@ document.getElementById("backToWorks").addEventListener("click",()=>{
   document.getElementById("workReader").hidden=true;
   document.getElementById("works-library").scrollIntoView({behavior:"smooth",block:"start"});
 });
-
+document.getElementById("closeLibrary").addEventListener("click",()=>{
+  document.getElementById("works-library").hidden = true;
+  document.getElementById("workReader").hidden = true;
+  document.getElementById("literature").scrollIntoView({
+    behavior:"smooth",
+    block:"start"
+  });
+});
 document.addEventListener("DOMContentLoaded", () => {
   loadWebsiteContent();
   loadWorks();
