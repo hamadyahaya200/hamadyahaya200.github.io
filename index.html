@@ -364,7 +364,7 @@ footer{
   </div>
 </section>
 
-<section class="poetry-library" id="works-library">
+<section class="poetry-library" id="works-library" hidden>
   <div class="container">
     <div class="section-title">
       <small data-sw="MAKTABA YA KAZI ZANGU" data-en="MY LITERARY LIBRARY">MAKTABA YA KAZI ZANGU</small>
@@ -528,10 +528,19 @@ function setWorkFilter(filter){
   document.getElementById("workReader").hidden=true;
   renderWorks();
 }
+document.querySelectorAll("[data-work-filter]").forEach(link=>{
+  link.addEventListener("click",()=>{
+    document.getElementById("works-library").hidden = false;
+    setWorkFilter(link.dataset.workFilter);
+    document.getElementById("works-library").scrollIntoView({behavior:"smooth"});
+  });
+});
 
-document.querySelectorAll("[data-work-filter]").forEach(link=>link.addEventListener("click",()=>setWorkFilter(link.dataset.workFilter)));
-document.querySelectorAll(".library-filter").forEach(btn=>btn.addEventListener("click",()=>setWorkFilter(btn.dataset.filter)));
-
+document.querySelectorAll(".library-filter").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    setWorkFilter(btn.dataset.filter);
+  });
+});
 function showWork(work){
   document.getElementById("readerTitle").textContent=work.title||"";
   document.getElementById("readerCategory").textContent=(workLabels[work.work_type||"poem"]||"Kazi")+(work.category?" • "+work.category:"");
