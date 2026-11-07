@@ -416,6 +416,19 @@ const supabaseClient = window.supabase.createClient(
   SUPABASE_URL,
   SUPABASE_KEY
 );
+async function testSupabase() {
+  const { data, error } = await supabaseClient
+    .from("site_content")
+    .select("*");
+
+  if (error) {
+    console.error("Supabase error:", error.message);
+  } else {
+    console.log("Supabase connected successfully:", data);
+  }
+}
+
+testSupabase();
 </script>
 </body>
 </html>
