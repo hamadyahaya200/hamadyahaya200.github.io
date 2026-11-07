@@ -71,9 +71,17 @@ nav a:hover{color:var(--blue)}
   margin:auto;
   display:grid;
   grid-template-columns:.8fr 1.2fr;
+  grid-template-areas:"photo text";
   gap:55px;
   align-items:center;
 }
+ .hero-inner > div:first-child{
+  grid-area:text;
+}
+
+.hero-inner .photo-wrap{
+  grid-area:photo;
+} 
 }
 .eyebrow{
   color:var(--blue);
