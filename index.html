@@ -1,76 +1,464 @@
-HAMAD YAHAYA.
-Nyumbani
-Kuhusu
-Fasihi
-Taaluma
-Mawasiliano
-EN
-Tovuti Rasmi
-Hamad Yahaya
-Mwandishi wa fasihi, mbunifu wa mawazo na mtaalamu wa Procurement. Karibu kwenye ulimwengu wa maarifa, ubunifu na taaluma.
 
-WORDS, IDEAS AND LEGACY.
-Nifahamu
-Kazi Zangu
-SAFARI YANGU
-Kuhusu Mimi
-Hamad Maulidi Yahaya
-Mimi ni Hamad Yahaya, mwandishi wa fasihi na mpenda ubunifu wa mawazo, pia nina taaluma ya Procurement. Kupitia tovuti hii, ninashirikisha safari yangu ya kitaaluma, kazi za fasihi, ubunifu, maarifa na uzoefu katika nyanja mbalimbali. Lengo langu ni kuunganisha maarifa, ubunifu na taaluma ili kuleta mchango chanya katika jamii.
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Hamad Yahaya - Writer, Literary Creator and Procurement Professional">
+<title>Hamad Yahaya | Official Website</title>
 
-Utambulisho Wangu
-✍️ Writer
-📖 Literary Creator
-📦 Procurement
-💡 Creative Thinker
-UBUNIFU NA MAWAZO
-Ulimwengu wa Fasihi
-Jukwaa la kushirikisha mawazo, maandishi na ubunifu.
+<style>
+:root {
+  --navy:#102746;
+  --blue:#2878b9;
+  --light:#eaf4fc;
+  --white:#ffffff;
+  --text:#26364a;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:Arial, sans-serif;
+  color:var(--text);
+  background:#fff;
+  line-height:1.7;
+}
+header{
+  background:#fff;
+  position:sticky;
+  top:0;
+  z-index:100;
+  box-shadow:0 3px 18px #10274612;
+}
+.nav{
+  max-width:1180px;
+  margin:auto;
+  padding:18px 5%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+.logo{
+  color:var(--navy);
+  font-size:23px;
+  font-weight:800;
+  letter-spacing:1px;
+}
+.logo span{color:var(--blue)}
+nav{display:flex;gap:24px;align-items:center}
+nav a{
+  text-decoration:none;
+  color:var(--navy);
+  font-size:14px;
+  font-weight:600;
+}
+nav a:hover{color:var(--blue)}
+.lang{
+  background:var(--navy);
+  color:white;
+  border:0;
+  padding:10px 17px;
+  border-radius:25px;
+  cursor:pointer;
+}
+.hero{
+  background:linear-gradient(120deg,#eaf4fc,#fff 70%);
+  padding:85px 5%;
+}
+.hero-inner{
+  max-width:1180px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:.8fr 1.2fr;
+  grid-template-areas:"photo text";
+  gap:55px;
+  align-items:center;
+}
 
-📚
-Vitabu
-Safari ya kuandika na kushirikisha kazi za vitabu.
+.hero-inner > div:first-child{
+  grid-area:text;
+}
 
-🖋️
-Mashairi
-Sanaa ya maneno, hisia na ujumbe wenye maana.
+.hero-inner .photo-wrap{
+  grid-area:photo;
+}
 
-📜
-Makala na Hadithi
-Mawazo na simulizi zinazochochea fikra.
+.eyebrow{
+  color:var(--blue);
+  font-weight:700;
+  letter-spacing:3px;
+  font-size:12px;
+  text-transform:uppercase;
+}
+h1{
+  color:var(--navy);
+  font-size:clamp(40px,6vw,68px);
+  line-height:1.12;
+  margin:18px 0;
+}
+h1 span{color:var(--blue)}
+.hero p{
+  max-width:600px;
+  font-size:17px;
+  color:#526176;
+}
+.tagline{
+  margin:20px 0;
+  color:var(--navy);
+  font-weight:bold;
+  letter-spacing:2px;
+}
+.actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+.btn{
+  display:inline-block;
+  padding:13px 24px;
+  border-radius:5px;
+  text-decoration:none;
+  font-weight:bold;
+}
+.primary{background:var(--navy);color:#fff}
+.secondary{border:1px solid var(--navy);color:var(--navy)}
+.photo-wrap{
+  background:#dcecf9;
+  padding:15px;
+  border-radius:180px 180px 18px 18px;
+  max-width:390px;
+  margin:auto;
+  box-shadow:0 20px 50px #10274620;
+}
+.photo-wrap img{
+  width:100%;
+  height:440px;
+  object-fit:cover;
+  display:block;
+  border-radius:170px 170px 12px 12px;
+}
+section{padding:85px 5%}
+.container{max-width:1100px;margin:auto}
+.section-title{text-align:center;margin-bottom:45px}
+.section-title small{
+  color:var(--blue);
+  font-weight:bold;
+  letter-spacing:3px;
+}
+.section-title h2{
+  color:var(--navy);
+  font-size:34px;
+  margin-top:8px;
+}
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:45px;
+  align-items:center;
+}
+.about-card{
+  background:var(--light);
+  padding:35px;
+  border-radius:12px;
+}
+.about-card h3{color:var(--navy);margin-bottom:15px}
+.skills{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+.skill{
+  background:#fff;
+  border:1px solid #e3edf6;
+  padding:17px;
+  border-radius:8px;
+  font-weight:600;
+  color:var(--navy);
+}
+.work-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+.work-card{
+  border:1px solid #e5edf5;
+  padding:28px;
+  border-radius:10px;
+  transition:.25s;
+  background:#fff;
+}
+.work-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 12px 30px #10274612;
+}
+.work-card .symbol{font-size:30px}
+.work-card h3{color:var(--navy);margin:12px 0}
+.professional{background:#f4f8fc}
+.experience{
+  border-left:3px solid var(--blue);
+  padding:5px 0 20px 22px;
+  margin:20px 0;
+}
+.experience h3{color:var(--navy)}
+.contact-box{
+  background:var(--navy);
+  color:#fff;
+  text-align:center;
+  padding:55px 25px;
+  border-radius:12px;
+}
+.contact-box h2{font-size:32px;margin-bottom:12px}
+.contact-box a{color:#fff}
+footer{
+  text-align:center;
+  padding:25px;
+  background:#0b1d34;
+  color:#d7e4f2;
+  font-size:13px;
+}
+@media(max-width:800px){
+  .nav{flex-wrap:wrap}
+  nav{order:3;width:100%;overflow-x:auto;gap:17px;padding:8px 0}
+  nav a{white-space:nowrap;font-size:12px}
+  .hero-inner{
+  grid-template-columns:1fr;
+  grid-template-areas:"text" "photo";
+}
+.about-grid{grid-template-columns:1fr}
+  .hero{padding-top:55px}
+  .photo-wrap{max-width:310px}
+  .photo-wrap img{height:350px}
+  .work-grid{grid-template-columns:1fr}
+  .skills{grid-template-columns:1fr}
+  section{padding:60px 5%}
+}
+</style>
+</head>
 
-MAENDELEO YA KITAALUMA
-Taaluma ya Procurement
-Education
-Ordinary Diploma in Procurement and Supply
-The Mwalimu Nyerere Memorial Academy
+<body>
 
-2023 – 2026 | Award pending
-National Arts Council (NAC)
-Field Procurement and Supply Experience
+<header>
+  <div class="nav">
+    <div class="logo">HAMAD YAHAYA<span>.</span></div>
 
-July – August 2024
-BRELA
-Field Procurement and Supply Experience
+    <nav>
+      <a href="#home" data-sw="Nyumbani" data-en="Home">Nyumbani</a>
+      <a href="#about" data-sw="Kuhusu" data-en="About">Kuhusu</a>
+      <a href="#literature" data-sw="Fasihi" data-en="Literature">Fasihi</a>
+      <a href="#career" data-sw="Taaluma" data-en="Career">Taaluma</a>
+      <a href="#contact" data-sw="Mawasiliano" data-en="Contact">Mawasiliano</a>
+    </nav>
 
-July – August 2025
-Maeneo ya Ujuzi
-• Procurement Planning
+    <button class="lang" onclick="toggleLanguage()">EN</button>
+  </div>
+</header>
 
-• Supplier Sourcing & Evaluation
+<main>
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow" data-sw="Tovuti Rasmi" data-en="Official Website">Tovuti Rasmi</div>
 
-• Tendering & Contract Management
+      <h1 id="home-title">Hamad <span>Yahaya</span></h1>
 
-• Inventory & Stock Management
+      <p id="home-content" data-sw="Mwandishi wa fasihi, mbunifu wa mawazo na mtaalamu wa Procurement. Karibu kwenye ulimwengu wa maarifa, ubunifu na taaluma."
+      data-en="A literary writer, creative thinker and Procurement professional. Welcome to a world of knowledge, creativity and professional growth.">
+      Mwandishi wa fasihi, mbunifu wa mawazo na mtaalamu wa Procurement. Karibu kwenye ulimwengu wa maarifa, ubunifu na taaluma.
+      </p>
 
-• Supply Chain Management
+      <div class="tagline">WORDS, IDEAS AND LEGACY.</div>
 
-• Logistics & Distribution
+      <div class="actions">
+        <a href="#about" class="btn primary" data-sw="Nifahamu" data-en="Discover More">Nifahamu</a>
+        <a href="#literature" class="btn secondary" data-sw="Kazi Zangu" data-en="My Works">Kazi Zangu</a>
+      </div>
+    </div>
 
-Tuungane
-Kwa mawasiliano, ushirikiano au maoni, karibu.
+    <div class="photo-wrap">
+      <!-- Badilisha src kwa njia halisi ya picha yako kwenye GitHub -->
+      <img src=hamad-yahaya.jpg
+           alt="Hamad Yahaya"
+           onerror="this.style.display='none';this.parentElement.style.display='none';">
+    </div>
+  </div>
+</section>
 
-hamadyahaya200@gmail.com
+<section id="about">
+  <div class="container">
+    <div class="section-title">
+      <small data-sw="SAFARI YANGU" data-en="MY JOURNEY">SAFARI YANGU</small>
+      <h2 id="about-title" data-sw="Kuhusu Mimi" data-en="About Me">Kuhusu Mimi</h2>
+    </div>
 
-Nitafute
-© 2026 Hamad Yahaya. All Rights Reserved.
-Words, Ideas and Legacy.
+    <div class="about-grid">
+      <div>
+        <h3 style="color:#102746;margin-bottom:15px">Hamad Maulidi Yahaya</h3>
+        <p id="about-content" data-sw="Mimi ni Hamad Yahaya, mwandishi wa fasihi na mpenda ubunifu wa mawazo, pia nina taaluma ya Procurement. Kupitia tovuti hii, ninashirikisha safari yangu ya kitaaluma, kazi za fasihi, ubunifu, maarifa na uzoefu katika nyanja mbalimbali. Lengo langu ni kuunganisha maarifa, ubunifu na taaluma ili kuleta mchango chanya katika jamii."
+        data-en="I am Hamad Yahaya, a literary writer and creative thinker with an academic background in Procurement. Through this platform, I share my professional journey, literary interests, creative ideas, knowledge and experiences across different fields. My goal is to connect knowledge, creativity and professional skills to make a positive contribution to society.">
+        Mimi ni Hamad Yahaya, mwandishi wa fasihi na mpenda ubunifu wa mawazo, pia nina taaluma ya Procurement. Kupitia tovuti hii, ninashirikisha safari yangu ya kitaaluma, kazi za fasihi, ubunifu, maarifa na uzoefu katika nyanja mbalimbali. Lengo langu ni kuunganisha maarifa, ubunifu na taaluma ili kuleta mchango chanya katika jamii.
+        </p>
+      </div>
+
+      <div class="about-card">
+        <h3 data-sw="Utambulisho Wangu" data-en="My Identity">Utambulisho Wangu</h3>
+        <div class="skills">
+          <div class="skill">✍️ Writer</div>
+          <div class="skill">📖 Literary Creator</div>
+          <div class="skill">📦 Procurement</div>
+          <div class="skill">💡 Creative Thinker</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="literature">
+  <div class="container">
+    <div class="section-title">
+      <small data-sw="UBUNIFU NA MAWAZO" data-en="CREATIVITY & IDEAS">UBUNIFU NA MAWAZO</small>
+      <h2 id="literature-title" data-sw="Ulimwengu wa Fasihi" data-en="Literary World">Ulimwengu wa Fasihi</h2>
+      <p id="literature-content" data-sw="Jukwaa la kushirikisha mawazo, maandishi na ubunifu." data-en="A platform for sharing ideas, writing and creativity.">
+      Jukwaa la kushirikisha mawazo, maandishi na ubunifu.
+      </p>
+    </div>
+
+    <div class="work-grid">
+      <div class="work-card">
+        <div class="symbol">📚</div>
+        <h3 data-sw="Vitabu" data-en="Books">Vitabu</h3>
+        <p data-sw="Safari ya kuandika na kushirikisha kazi za vitabu." data-en="A journey of writing and sharing books.">Safari ya kuandika na kushirikisha kazi za vitabu.</p>
+      </div>
+
+      <div class="work-card">
+        <div class="symbol">🖋️</div>
+        <h3 data-sw="Mashairi" data-en="Poetry">Mashairi</h3>
+        <p data-sw="Sanaa ya maneno, hisia na ujumbe wenye maana." data-en="The art of words, emotions and meaningful messages.">Sanaa ya maneno, hisia na ujumbe wenye maana.</p>
+      </div>
+
+      <div class="work-card">
+        <div class="symbol">📜</div>
+        <h3 data-sw="Makala na Hadithi" data-en="Articles & Stories">Makala na Hadithi</h3>
+        <p data-sw="Mawazo na simulizi zinazochochea fikra." data-en="Ideas and stories that inspire thought.">Mawazo na simulizi zinazochochea fikra.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="professional" id="career">
+  <div class="container">
+    <div class="section-title">
+      <small data-sw="MAENDELEO YA KITAALUMA" data-en="PROFESSIONAL DEVELOPMENT">MAENDELEO YA KITAALUMA</small>
+      <h2 id="procurement-title" data-sw="Taaluma ya Procurement" data-en="Procurement Career">Taaluma ya Procurement</h2>
+      <p id="procurement-content" style="max-width:760px;margin:12px auto 0;text-align:center"></p>
+    </div>
+
+    <div class="about-grid">
+      <div>
+        <h3 style="color:#102746;margin-bottom:12px">Education</h3>
+        <div class="experience">
+          <h3>Ordinary Diploma in Procurement and Supply</h3>
+          <p>The Mwalimu Nyerere Memorial Academy</p>
+          <small>2023 – 2026 | Award pending</small>
+        </div>
+        <div class="experience">
+          <h3>National Arts Council (NAC)</h3>
+          <p>Field Procurement and Supply Experience</p>
+          <small>July – August 2024</small>
+        </div>
+        <div class="experience">
+          <h3>BRELA</h3>
+          <p>Field Procurement and Supply Experience</p>
+          <small>July – August 2025</small>
+        </div>
+      </div>
+
+      <div class="about-card">
+        <h3 data-sw="Maeneo ya Ujuzi" data-en="Areas of Expertise">Maeneo ya Ujuzi</h3>
+        <p>• Procurement Planning</p>
+        <p>• Supplier Sourcing & Evaluation</p>
+        <p>• Tendering & Contract Management</p>
+        <p>• Inventory & Stock Management</p>
+        <p>• Supply Chain Management</p>
+        <p>• Logistics & Distribution</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="contact-box">
+      <h2 id="contact-title" data-sw="Tuungane" data-en="Let's Connect">Tuungane</h2>
+      <p id="contact-content" data-sw="Kwa mawasiliano, ushirikiano au maoni, karibu." data-en="For communication, collaboration or feedback, get in touch.">
+      Kwa mawasiliano, ushirikiano au maoni, karibu.
+      </p>
+      <p style="margin:20px 0">
+        <a href="mailto:hamadyahaya200@gmail.com">hamadyahaya200@gmail.com</a>
+      </p>
+      <a class="btn secondary" style="background:white"
+         href="mailto:hamadyahaya200@gmail.com"
+         data-sw="Nitafute" data-en="Contact Me">Nitafute</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  © 2026 Hamad Yahaya. All Rights Reserved.
+  <br>Words, Ideas and Legacy.
+</footer>
+
+<script>
+let currentLanguage = "sw";
+
+function toggleLanguage(){
+  currentLanguage = currentLanguage === "sw" ? "en" : "sw";
+
+  document.querySelectorAll("[data-sw]").forEach(element => {
+    element.textContent = element.getAttribute("data-" + currentLanguage);
+  });
+
+  document.querySelector(".lang").textContent =
+    currentLanguage === "sw" ? "EN" : "SW";
+
+  document.documentElement.lang = currentLanguage;
+}
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const SUPABASE_URL="https://xkcrotlghwhgjuinnxzp.supabase.co";
+const SUPABASE_KEY="sb_publishable_CUnSD1LeO9qSEWvtjuyjyg_ewheu1FQ";
+const supabaseClient=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+async function loadWebsiteContent(){
+ const lang=currentLanguage||"sw";
+ const {data,error}=await supabaseClient.from("site_content").select("section,title,content,language,created_at").eq("language",lang).order("created_at",{ascending:false});
+ if(error){console.error("Supabase content error:",error.message);return;}
+ const latest={};(data||[]).forEach(row=>{if(!latest[row.section])latest[row.section]=row;});
+ const targets={home:["home-title","home-content"],about:["about-title","about-content"],literature:["literature-title","literature-content"],procurement:["procurement-title","procurement-content"],contact:["contact-title","contact-content"]};
+ Object.entries(targets).forEach(([section,ids])=>{const row=latest[section];if(!row)return;const t=document.getElementById(ids[0]);const c=document.getElementById(ids[1]);if(t&&row.title)t.textContent=row.title;if(c&&row.content)c.textContent=row.content;});
+}
+const oldToggleLanguage=toggleLanguage;toggleLanguage=function(){oldToggleLanguage();loadWebsiteContent();};
+document.addEventListener("DOMContentLoaded",loadWebsiteContent);
+</script>
+
+<script>
+const SUPABASE_URL = "https://xkcrotlghwhgjuinnxzp.supabase.co";
+const SUPABASE_KEY = "sb_publishable_CUnSD1LeO9qSEWvtjuyjyg_ewheu1FQ";
+
+const supabaseClient = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
+async function testSupabase() {
+  const { data, error } = await supabaseClient
+    .from("site_content")
+    .select("*");
+
+  if (error) {
+    console.error("Supabase error:", error.message);
+  } else {
+    console.log("Supabase connected successfully:", data);
+  }
+}
+
+testSupabase();
+</script>
+</body>
+</html>
