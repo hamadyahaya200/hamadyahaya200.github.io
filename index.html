@@ -216,7 +216,11 @@ footer{
   .nav{flex-wrap:wrap}
   nav{order:3;width:100%;overflow-x:auto;gap:17px;padding:8px 0}
   nav a{white-space:nowrap;font-size:12px}
-  .hero-inner,.about-grid{grid-template-columns:1fr}
+  .hero-inner{
+  grid-template-columns:1fr;
+  grid-template-areas:"text" "photo";
+}
+.about-grid{grid-template-columns:1fr}
   .hero{padding-top:55px}
   .photo-wrap{max-width:310px}
   .photo-wrap img{height:350px}
