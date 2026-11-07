@@ -577,55 +577,28 @@ document.addEventListener("DOMContentLoaded", () => {
   loadWorks();
 });
 
+
+</script>
+
 <!-- COOKIE CONSENT -->
 <div id="cookieBanner" class="cookie-banner" hidden>
   <h3 id="cookieHeading">Tunakujali faragha yako</h3>
-
   <p id="cookieDescription">
-    Tovuti hii hutumia cookies kuboresha matumizi yako,
-    kuchambua matumizi ya tovuti na kusaidia matangazo.
+    Tovuti hii hutumia cookies kuboresha matumizi yako.
     Unaweza kuchagua aina ya cookies unazoruhusu.
   </p>
 
   <div class="cookie-actions">
-    <button onclick="saveCookieChoice('all')" id="acceptCookies">
-      Kubali zote
-    </button>
-
-    <button onclick="saveCookieChoice('necessary')" id="rejectCookies">
-      Kataa zisizo za lazima
-    </button>
-
-    <button onclick="showCookieSettings()" id="cookieSettings">
-      Mipangilio
-    </button>
+    <button onclick="saveCookieChoice('all')" id="acceptCookies">Kubali zote</button>
+    <button onclick="saveCookieChoice('necessary')" id="rejectCookies">Kataa zisizo za lazima</button>
+    <button onclick="showCookieSettings()" id="cookieSettings">Mipangilio</button>
   </div>
 
   <div id="cookieOptions" hidden>
-    <p>
-      <label>
-        <input type="checkbox" checked disabled>
-        <span id="necessaryLabel">Cookies muhimu (hazizimiki)</span>
-      </label>
-    </p>
-
-    <p>
-      <label>
-        <input type="checkbox" id="analyticsCookies">
-        <span id="analyticsLabel">Cookies za uchanganuzi</span>
-      </label>
-    </p>
-
-    <p>
-      <label>
-        <input type="checkbox" id="marketingCookies">
-        <span id="marketingLabel">Cookies za matangazo</span>
-      </label>
-    </p>
-
-    <button onclick="saveCustomCookies()" id="saveCookieSettings">
-      Hifadhi uchaguzi
-    </button>
+    <p><input type="checkbox" checked disabled> <span id="necessaryLabel">Cookies muhimu</span></p>
+    <p><input type="checkbox" id="analyticsCookies"> <span id="analyticsLabel">Cookies za uchanganuzi</span></p>
+    <p><input type="checkbox" id="marketingCookies"> <span id="marketingLabel">Cookies za matangazo</span></p>
+    <button onclick="saveCustomCookies()" id="saveCookieSettings">Hifadhi uchaguzi</button>
   </div>
 </div>
 
@@ -637,26 +610,20 @@ document.addEventListener("DOMContentLoaded", () => {
   right: 15px;
   max-width: 650px;
   margin: auto;
-  background: #fff;
-  color: #222;
   padding: 22px;
+  background: white;
+  color: #222;
   border-radius: 12px;
-  box-shadow: 0 4px 25px rgba(0,0,0,.25);
+  box-shadow: 0 4px 25px #0004;
   z-index: 999999;
   font-family: Arial, sans-serif;
   line-height: 1.6;
 }
-
-.cookie-banner h3 {
-  margin-top: 0;
-}
-
 .cookie-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
 }
-
 .cookie-banner button {
   padding: 11px 15px;
   border: none;
@@ -665,58 +632,36 @@ document.addEventListener("DOMContentLoaded", () => {
   color: white;
   cursor: pointer;
 }
-
-.cookie-banner button:hover {
-  opacity: .85;
-}
-
-.cookie-banner input {
-  margin-right: 7px;
-}
-
-@media(max-width:480px) {
-  .cookie-banner {
-    left: 8px;
-    right: 8px;
-    bottom: 8px;
-    padding: 15px;
-  }
-}
 </style>
 
 <script>
 const cookieTexts = {
   sw: {
     title: "Tunakujali faragha yako",
-    description: "Tovuti hii hutumia cookies kuboresha matumizi yako, kuchambua matumizi ya tovuti na kusaidia matangazo. Unaweza kuchagua aina ya cookies unazoruhusu.",
+    description: "Tovuti hii hutumia cookies kuboresha matumizi yako. Unaweza kuchagua aina ya cookies unazoruhusu.",
     accept: "Kubali zote",
     reject: "Kataa zisizo za lazima",
     settings: "Mipangilio",
-    necessary: "Cookies muhimu (hazizimiki)",
+    necessary: "Cookies muhimu",
     analytics: "Cookies za uchanganuzi",
     marketing: "Cookies za matangazo",
     save: "Hifadhi uchaguzi"
   },
   en: {
     title: "Your privacy matters",
-    description: "This website uses cookies to improve your experience, analyse website usage and support advertising. You can choose which cookies to allow.",
+    description: "This website uses cookies to improve your experience. You can choose which cookies to allow.",
     accept: "Accept all",
     reject: "Reject non-essential",
     settings: "Settings",
-    necessary: "Necessary cookies (always active)",
+    necessary: "Necessary cookies",
     analytics: "Analytics cookies",
     marketing: "Advertising cookies",
     save: "Save choices"
   }
 };
 
-function getCookieLanguage() {
-  return document.documentElement.lang === "en" ? "en" : "sw";
-}
-
 function updateCookieLanguage() {
-  const t = cookieTexts[getCookieLanguage()];
-
+  const t = cookieTexts[document.documentElement.lang === "en" ? "en" : "sw"];
   document.getElementById("cookieHeading").textContent = t.title;
   document.getElementById("cookieDescription").textContent = t.description;
   document.getElementById("acceptCookies").textContent = t.accept;
@@ -738,7 +683,6 @@ function saveCookieChoice(choice) {
     analytics: choice === "all",
     marketing: choice === "all"
   };
-
   localStorage.setItem("cookiePreferences", JSON.stringify(preferences));
   document.getElementById("cookieBanner").hidden = true;
 }
@@ -749,377 +693,6 @@ function saveCustomCookies() {
     analytics: document.getElementById("analyticsCookies").checked,
     marketing: document.getElementById("marketingCookies").checked
   };
-
-  localStorage.setItem("cookiePreferences", JSON.stringify(preferences));
-  document.getElementById("cookieBanner").hidden = true;
-}
-
-document.addEventListener("DOMContentLoaded", function() {
-  updateCookieLanguage();
-
-  if (!localStorage.getItem("cookiePreferences")) {
-    document.getElementById("cookieBanner").hidden = false;
-  }
-});
-
-<!-- COOKIE CONSENT -->
-<div id="cookieBanner" class="cookie-banner" hidden>
-  <h3 id="cookieHeading">Tunakujali faragha yako</h3>
-
-  <p id="cookieDescription">
-    Tovuti hii hutumia cookies kuboresha matumizi yako,
-    kuchambua matumizi ya tovuti na kusaidia matangazo.
-    Unaweza kuchagua aina ya cookies unazoruhusu.
-  </p>
-
-  <div class="cookie-actions">
-    <button onclick="saveCookieChoice('all')" id="acceptCookies">
-      Kubali zote
-    </button>
-
-    <button onclick="saveCookieChoice('necessary')" id="rejectCookies">
-      Kataa zisizo za lazima
-    </button>
-
-    <button onclick="showCookieSettings()" id="cookieSettings">
-      Mipangilio
-    </button>
-  </div>
-
-  <div id="cookieOptions" hidden>
-    <p>
-      <label>
-        <input type="checkbox" checked disabled>
-        <span id="necessaryLabel">Cookies muhimu (hazizimiki)</span>
-      </label>
-    </p>
-
-    <p>
-      <label>
-        <input type="checkbox" id="analyticsCookies">
-        <span id="analyticsLabel">Cookies za uchanganuzi</span>
-      </label>
-    </p>
-
-    <p>
-      <label>
-        <input type="checkbox" id="marketingCookies">
-        <span id="marketingLabel">Cookies za matangazo</span>
-      </label>
-    </p>
-
-    <button onclick="saveCustomCookies()" id="saveCookieSettings">
-      Hifadhi uchaguzi
-    </button>
-  </div>
-</div>
-
-<style>
-.cookie-banner {
-  position: fixed;
-  bottom: 15px;
-  left: 15px;
-  right: 15px;
-  max-width: 650px;
-  margin: auto;
-  background: #fff;
-  color: #222;
-  padding: 22px;
-  border-radius: 12px;
-  box-shadow: 0 4px 25px rgba(0,0,0,.25);
-  z-index: 999999;
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-}
-
-.cookie-banner h3 {
-  margin-top: 0;
-}
-
-.cookie-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.cookie-banner button {
-  padding: 11px 15px;
-  border: none;
-  border-radius: 6px;
-  background: #173b70;
-  color: white;
-  cursor: pointer;
-}
-
-.cookie-banner button:hover {
-  opacity: .85;
-}
-
-.cookie-banner input {
-  margin-right: 7px;
-}
-
-@media(max-width:480px) {
-  .cookie-banner {
-    left: 8px;
-    right: 8px;
-    bottom: 8px;
-    padding: 15px;
-  }
-}
-</style>
-
-<script>
-const cookieTexts = {
-  sw: {
-    title: "Tunakujali faragha yako",
-    description: "Tovuti hii hutumia cookies kuboresha matumizi yako, kuchambua matumizi ya tovuti na kusaidia matangazo. Unaweza kuchagua aina ya cookies unazoruhusu.",
-    accept: "Kubali zote",
-    reject: "Kataa zisizo za lazima",
-    settings: "Mipangilio",
-    necessary: "Cookies muhimu (hazizimiki)",
-    analytics: "Cookies za uchanganuzi",
-    marketing: "Cookies za matangazo",
-    save: "Hifadhi uchaguzi"
-  },
-  en: {
-    title: "Your privacy matters",
-    description: "This website uses cookies to improve your experience, analyse website usage and support advertising. You can choose which cookies to allow.",
-    accept: "Accept all",
-    reject: "Reject non-essential",
-    settings: "Settings",
-    necessary: "Necessary cookies (always active)",
-    analytics: "Analytics cookies",
-    marketing: "Advertising cookies",
-    save: "Save choices"
-  }
-};
-
-function getCookieLanguage() {
-  return document.documentElement.lang === "en" ? "en" : "sw";
-}
-
-function updateCookieLanguage() {
-  const t = cookieTexts[getCookieLanguage()];
-
-  document.getElementById("cookieHeading").textContent = t.title;
-  document.getElementById("cookieDescription").textContent = t.description;
-  document.getElementById("acceptCookies").textContent = t.accept;
-  document.getElementById("rejectCookies").textContent = t.reject;
-  document.getElementById("cookieSettings").textContent = t.settings;
-  document.getElementById("necessaryLabel").textContent = t.necessary;
-  document.getElementById("analyticsLabel").textContent = t.analytics;
-  document.getElementById("marketingLabel").textContent = t.marketing;
-  document.getElementById("saveCookieSettings").textContent = t.save;
-}
-
-function showCookieSettings() {
-  document.getElementById("cookieOptions").hidden = false;
-}
-
-function saveCookieChoice(choice) {
-  const preferences = {
-    necessary: true,
-    analytics: choice === "all",
-    marketing: choice === "all"
-  };
-
-  localStorage.setItem("cookiePreferences", JSON.stringify(preferences));
-  document.getElementById("cookieBanner").hidden = true;
-}
-
-function saveCustomCookies() {
-  const preferences = {
-    necessary: true,
-    analytics: document.getElementById("analyticsCookies").checked,
-    marketing: document.getElementById("marketingCookies").checked
-  };
-
-  localStorage.setItem("cookiePreferences", JSON.stringify(preferences));
-  document.getElementById("cookieBanner").hidden = true;
-}
-
-document.addEventListener("DOMContentLoaded", function() {
-  updateCookieLanguage();
-
-  if (!localStorage.getItem("cookiePreferences")) {
-    document.getElementById("cookieBanner").hidden = false;
-  }
-});
-
-<!-- COOKIE CONSENT -->
-<div id="cookieBanner" class="cookie-banner" hidden>
-  <h3 id="cookieHeading">Tunakujali faragha yako</h3>
-
-  <p id="cookieDescription">
-    Tovuti hii hutumia cookies kuboresha matumizi yako,
-    kuchambua matumizi ya tovuti na kusaidia matangazo.
-    Unaweza kuchagua aina ya cookies unazoruhusu.
-  </p>
-
-  <div class="cookie-actions">
-    <button onclick="saveCookieChoice('all')" id="acceptCookies">
-      Kubali zote
-    </button>
-
-    <button onclick="saveCookieChoice('necessary')" id="rejectCookies">
-      Kataa zisizo za lazima
-    </button>
-
-    <button onclick="showCookieSettings()" id="cookieSettings">
-      Mipangilio
-    </button>
-  </div>
-
-  <div id="cookieOptions" hidden>
-    <p>
-      <label>
-        <input type="checkbox" checked disabled>
-        <span id="necessaryLabel">Cookies muhimu (hazizimiki)</span>
-      </label>
-    </p>
-
-    <p>
-      <label>
-        <input type="checkbox" id="analyticsCookies">
-        <span id="analyticsLabel">Cookies za uchanganuzi</span>
-      </label>
-    </p>
-
-    <p>
-      <label>
-        <input type="checkbox" id="marketingCookies">
-        <span id="marketingLabel">Cookies za matangazo</span>
-      </label>
-    </p>
-
-    <button onclick="saveCustomCookies()" id="saveCookieSettings">
-      Hifadhi uchaguzi
-    </button>
-  </div>
-</div>
-
-<style>
-.cookie-banner {
-  position: fixed;
-  bottom: 15px;
-  left: 15px;
-  right: 15px;
-  max-width: 650px;
-  margin: auto;
-  background: #fff;
-  color: #222;
-  padding: 22px;
-  border-radius: 12px;
-  box-shadow: 0 4px 25px rgba(0,0,0,.25);
-  z-index: 999999;
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-}
-
-.cookie-banner h3 {
-  margin-top: 0;
-}
-
-.cookie-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.cookie-banner button {
-  padding: 11px 15px;
-  border: none;
-  border-radius: 6px;
-  background: #173b70;
-  color: white;
-  cursor: pointer;
-}
-
-.cookie-banner button:hover {
-  opacity: .85;
-}
-
-.cookie-banner input {
-  margin-right: 7px;
-}
-
-@media(max-width:480px) {
-  .cookie-banner {
-    left: 8px;
-    right: 8px;
-    bottom: 8px;
-    padding: 15px;
-  }
-}
-</style>
-
-<script>
-const cookieTexts = {
-  sw: {
-    title: "Tunakujali faragha yako",
-    description: "Tovuti hii hutumia cookies kuboresha matumizi yako, kuchambua matumizi ya tovuti na kusaidia matangazo. Unaweza kuchagua aina ya cookies unazoruhusu.",
-    accept: "Kubali zote",
-    reject: "Kataa zisizo za lazima",
-    settings: "Mipangilio",
-    necessary: "Cookies muhimu (hazizimiki)",
-    analytics: "Cookies za uchanganuzi",
-    marketing: "Cookies za matangazo",
-    save: "Hifadhi uchaguzi"
-  },
-  en: {
-    title: "Your privacy matters",
-    description: "This website uses cookies to improve your experience, analyse website usage and support advertising. You can choose which cookies to allow.",
-    accept: "Accept all",
-    reject: "Reject non-essential",
-    settings: "Settings",
-    necessary: "Necessary cookies (always active)",
-    analytics: "Analytics cookies",
-    marketing: "Advertising cookies",
-    save: "Save choices"
-  }
-};
-
-function getCookieLanguage() {
-  return document.documentElement.lang === "en" ? "en" : "sw";
-}
-
-function updateCookieLanguage() {
-  const t = cookieTexts[getCookieLanguage()];
-
-  document.getElementById("cookieHeading").textContent = t.title;
-  document.getElementById("cookieDescription").textContent = t.description;
-  document.getElementById("acceptCookies").textContent = t.accept;
-  document.getElementById("rejectCookies").textContent = t.reject;
-  document.getElementById("cookieSettings").textContent = t.settings;
-  document.getElementById("necessaryLabel").textContent = t.necessary;
-  document.getElementById("analyticsLabel").textContent = t.analytics;
-  document.getElementById("marketingLabel").textContent = t.marketing;
-  document.getElementById("saveCookieSettings").textContent = t.save;
-}
-
-function showCookieSettings() {
-  document.getElementById("cookieOptions").hidden = false;
-}
-
-function saveCookieChoice(choice) {
-  const preferences = {
-    necessary: true,
-    analytics: choice === "all",
-    marketing: choice === "all"
-  };
-
-  localStorage.setItem("cookiePreferences", JSON.stringify(preferences));
-  document.getElementById("cookieBanner").hidden = true;
-}
-
-function saveCustomCookies() {
-  const preferences = {
-    necessary: true,
-    analytics: document.getElementById("analyticsCookies").checked,
-    marketing: document.getElementById("marketingCookies").checked
-  };
-
   localStorage.setItem("cookiePreferences", JSON.stringify(preferences));
   document.getElementById("cookieBanner").hidden = true;
 }
