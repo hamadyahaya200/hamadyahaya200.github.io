@@ -580,8 +580,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </script>
 
+
 <!-- COOKIE CONSENT -->
-<div id="cookieBanner" class="cookie-banner">
+<div id="cookieBanner" class="cookie-banner" hidden>
   <h3 id="cookieHeading">Tunakujali faragha yako</h3>
   <p id="cookieDescription">
     Tovuti hii hutumia cookies kuboresha matumizi yako.
@@ -594,7 +595,24 @@ document.addEventListener("DOMContentLoaded", () => {
     <button onclick="showCookieSettings()" id="cookieSettings">Mipangilio</button>
   </div>
 
-c
+  <div id="cookieOptions" hidden>
+    <p><label> <input type="checkbox" checked disabled> Cookies muhimu</label></p>
+    <p><label> <input type="checkbox" id="analyticsCookies"> Cookies za uchanganuzi</label></p>
+    <p><label> <input type="checkbox" id="marketingCookies"> Cookies za matangazo</label></p>
+    <button onclick="saveCustomCookies()">Hifadhi uchaguzi</button>
+  </div>
+</div>
+
+<style>
+.cookie-banner {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  max-width: 650px;
+  margin: auto;
+  padding: 22px;
+  background: white;
   color: #222;
   border-radius: 12px;
   box-shadow: 0 4px 25px #0004;
@@ -606,6 +624,7 @@ c
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  margin-top: 12px;
 }
 .cookie-banner button {
   padding: 11px 15px;
@@ -614,6 +633,12 @@ c
   background: #173b70;
   color: white;
   cursor: pointer;
+}
+#cookieOptions {
+  margin-top: 15px;
+}
+#cookieOptions[hidden] {
+  display: none !important;
 }
 </style>
 
@@ -624,22 +649,14 @@ const cookieTexts = {
     description: "Tovuti hii hutumia cookies kuboresha matumizi yako. Unaweza kuchagua aina ya cookies unazoruhusu.",
     accept: "Kubali zote",
     reject: "Kataa zisizo za lazima",
-    settings: "Mipangilio",
-    necessary: "Cookies muhimu",
-    analytics: "Cookies za uchanganuzi",
-    marketing: "Cookies za matangazo",
-    save: "Hifadhi uchaguzi"
+    settings: "Mipangilio"
   },
   en: {
     title: "Your privacy matters",
     description: "This website uses cookies to improve your experience. You can choose which cookies to allow.",
     accept: "Accept all",
     reject: "Reject non-essential",
-    settings: "Settings",
-    necessary: "Necessary cookies",
-    analytics: "Analytics cookies",
-    marketing: "Advertising cookies",
-    save: "Save choices"
+    settings: "Settings"
   }
 };
 
@@ -650,10 +667,6 @@ function updateCookieLanguage() {
   document.getElementById("acceptCookies").textContent = t.accept;
   document.getElementById("rejectCookies").textContent = t.reject;
   document.getElementById("cookieSettings").textContent = t.settings;
-  document.getElementById("necessaryLabel").textContent = t.necessary;
-  document.getElementById("analyticsLabel").textContent = t.analytics;
-  document.getElementById("marketingLabel").textContent = t.marketing;
-  document.getElementById("saveCookieSettings").textContent = t.save;
 }
 
 function showCookieSettings() {
@@ -683,30 +696,10 @@ function saveCustomCookies() {
 document.addEventListener("DOMContentLoaded", function() {
   updateCookieLanguage();
 
-  const observer = new MutationObserver(function() {
-    const firstLink = document.querySelector('nav a[href="#home"]');
-
-    if (firstLink) {
-      const lang = firstLink.textContent.trim() === "Home" ? "en" : "sw";
-
-      if (document.documentElement.lang !== lang) {
-        document.documentElement.lang = lang;
-        updateCookieLanguage();
-      }
-    }
-  });
-
-  const nav = document.querySelector("nav");
-
-  if (nav) {
-    observer.observe(nav, {
-      childList: true,
-      characterData: true,
-      subtree: true
-    });
-  }
-
   if (!localStorage.getItem("cookiePreferences")) {
     document.getElementById("cookieBanner").hidden = false;
   }
 });
+</script>
+</body>
+</html>
